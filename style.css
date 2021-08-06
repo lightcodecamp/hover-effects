@@ -1,0 +1,139 @@
+:root {
+  --color: #03a2ad;
+  --color-bg-1: #ff00f2;
+  --color-bg-2: #e69b78;
+}
+
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--color);
+  text-align: center;
+  margin: 80px 0;
+}
+
+.container {
+  width: 94vw;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+}
+
+.card {
+  font-size: 1.5rem;
+  flex: auto;
+  min-width: calc(33% - 2vw);
+  margin: 0 1vw calc(1vw + 50px) 1vw;
+  position: relative;
+  cursor: pointer;
+}
+
+.card:hover .bg-1,
+.card:hover .bg-2 {
+  display: block;
+}
+
+.card::before {
+  content: '';
+  float: left;
+  padding-top: 100%;
+}
+
+.icon-box {
+  position: absolute;
+  width: 84%;
+  height: 84%;
+  border-radius: 30%;
+  background-color: #fff;
+  margin: 8%;
+  vertical-align: middle;
+  z-index: 5000;
+}
+
+.icon {
+  width: 40%;
+  height: 40%;
+  border-radius: 5px;
+  margin: 30%;
+  background-image: linear-gradient(
+    to top,
+    #d8bec3 0%,
+    #c1d3ee 99%,
+    #a4b6d1 100%
+  );
+  transform: rotate(45deg);
+  display: grid;
+  place-items: center;
+}
+
+.icon i {
+  transform: rotate(-45deg);
+  color: var(--color);
+}
+
+.title {
+  font-weight: 700;
+  color: var(--color);
+  position: relative;
+  top: calc(100% + 16px);
+}
+
+.title span {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.bg-1,
+.bg-2 {
+  position: absolute;
+  width: 84%;
+  height: 84%;
+  border-radius: 30%;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  z-index: 3000;
+  display: none;
+}
+
+.bg-1 {
+  animation: move 1.8s linear infinite;
+  background-color: var(--color-bg-1);
+}
+
+.bg-2 {
+  animation: move 1.2s linear reverse infinite;
+  background-color: var(--color-bg-2);
+}
+
+@keyframes move {
+  0% {
+    top: 0%;
+    left: 8%;
+  }
+  25% {
+    top: 8%;
+    left: 0%;
+  }
+  50% {
+    top: 16%;
+    left: 8%;
+  }
+  75% {
+    top: 8%;
+    left: 16%;
+  }
+  100% {
+    top: 0%;
+    left: 8%;
+  }
+}
